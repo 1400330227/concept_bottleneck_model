@@ -1,0 +1,18 @@
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type Inception3. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type BasicConv2d. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type InceptionA. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type InceptionB. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type InceptionC. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type InceptionAux. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type FC. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type InceptionD. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
+/usr/local/lib/python3.6/dist-packages/torch/serialization.py:256: UserWarning: Couldn't retrieve source code for container of type InceptionE. It won't be checked for correctness upon loading.
+  "type " + obj.__name__ + ". It won't be checked "
