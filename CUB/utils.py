@@ -73,3 +73,5 @@ class IndexToString(object):
 if __name__ == '__main__':
     concept_index_to_string = IndexToString("./CUB_200_2011/attributes/attributes.txt")
     print(concept_index_to_string)
+    class_index_to_string = IndexToString("./CUB_200_2011/classes.txt", classes=True)
+    print(class_index_to_string)
