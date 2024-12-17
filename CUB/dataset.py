@@ -8,6 +8,8 @@ import numpy as np
 import torchvision.transforms as transforms
 
 from PIL import Image
+from matplotlib import pyplot as plt
+
 from CUB.config import BASE_DIR, N_ATTRIBUTES
 from torch.utils.data import BatchSampler
 from torch.utils.data import Dataset, DataLoader
@@ -18,7 +20,7 @@ class CUBDataset(Dataset):
     Returns a compatible Torch Dataset object customized for the CUB dataset
     """
 
-    def __init__(self, pkl_file_paths, use_attr, no_img, uncertain_label, image_dir, n_class_attr, transform=None):
+    def __init__(self, pkl_file_paths, use_attr, no_img, uncertain_label, image_dir, n_class_attr, transform=None, is_show_img=False):
         """
         Arguments:
         pkl_file_paths: list of full path to all the pkl data
@@ -41,6 +43,7 @@ class CUBDataset(Dataset):
         self.uncertain_label = uncertain_label
         self.image_dir = image_dir
         self.n_class_attr = n_class_attr
+        self.is_show_img = is_show_img
 
     def __len__(self):
         return len(self.data)
@@ -80,6 +83,8 @@ class CUBDataset(Dataset):
                 else:
                     return attr_label, class_label
             else:
+                if self.is_show_img:
+                    return img, class_label, attr_label, img_path
                 return img, class_label, attr_label
         else:
             return img, class_label
@@ -155,7 +160,7 @@ def load_data(pkl_paths, use_attr, no_img, batch_size, uncertain_label=False, n_
             #transforms.Normalize(mean = [ 0.485, 0.456, 0.406 ], std = [ 0.229, 0.224, 0.225 ]),
             ])
 
-    dataset = CUBDataset(pkl_paths, use_attr, no_img, uncertain_label, image_dir, n_class_attr, transform)
+    dataset = CUBDataset(pkl_paths, use_attr, no_img, uncertain_label, image_dir, n_class_attr, transform, is_show_img=True)
     if is_training:
         drop_last = True
         shuffle = True
