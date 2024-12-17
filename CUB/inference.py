@@ -264,5 +264,7 @@ if __name__ == '__main__':
     output_string = '%.4f %.4f %.4f %.4f' % values
     print_string = 'Error of y: %.4f +- %.4f, Error of C: %.4f +- %.4f' % values
     print(print_string)
+    if not os.path.exists(args.log_dir):
+        os.makedirs(args.log_dir)
     output = open(os.path.join(args.log_dir, 'results.txt'), 'w')
     output.write(output_string)

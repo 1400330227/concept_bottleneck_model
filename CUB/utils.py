@@ -3,6 +3,8 @@ Common functions for visualization in different ipython notebooks
 """
 import os
 import random
+from collections import defaultdict
+
 from matplotlib.pyplot import figure, imshow, axis, show
 from matplotlib.image import imread
 
@@ -48,3 +50,26 @@ def show_img_horizontally(list_of_files):
         imshow(image)
         axis('off')
     show(block=True)
+
+
+class IndexToString(object):
+    def __init__(self, file_path, classes=False):
+        super(IndexToString, self).__init__()
+        self.string_dict = defaultdict(str)
+        with open(file_path, 'r') as f:
+            lines = f.readlines()
+            for i in lines:
+                i = i.split(" ")
+                if classes:
+                    String_value = (i[1][:-1]).split(".")[1]
+                else:
+                    String_value = i[1][:-1]
+                self.string_dict[int(i[0]) - 1] = String_value
+
+    def __call__(self, index):
+        return self.string_dict[index]
+
+
+if __name__ == '__main__':
+    concept_index_to_string = IndexToString("./CUB_200_2011/attributes/attributes.txt")
+    print(concept_index_to_string)
