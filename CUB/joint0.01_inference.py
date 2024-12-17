@@ -181,11 +181,10 @@ def eval(args):
 
                     class_label = class_index_to_string(class_outputs_index[i].item())
                     percentages = []
-                    labels = []
+                    label_names = []
                     for j, idx in enumerate(attr_outputs_index):
-                        labels.append(concept_index_to_string(idx))
+                        label_names.append(concept_index_to_string(idx))
                         percentages.append(round(attr_outputs_labels[idx].item() * 100, 2))
-                        # print(idx + 1, concept_index_to_string(i), attr_outputs_labels[i].item())
 
                     path = os.path.join(img_paths[i])
                     img = Image.open(path).convert('RGB')
@@ -194,9 +193,9 @@ def eval(args):
                     plt.imshow(img)
                     plt.show()
 
-                    labels = labels[:len(percentages)]
+                    label_names = label_names[:len(percentages)]
 
-                    y_pos = np.arange(len(labels))
+                    y_pos = np.arange(len(label_names))
 
                     fig = plt.subplots(figsize=(24, 24))
 
@@ -205,7 +204,7 @@ def eval(args):
                     plt.xlabel("Percentage (%)")
                     plt.title(f"Percentage of contribution to task classification. class:{class_label}\n path: {path}")
 
-                    plt.yticks(y_pos, labels)
+                    plt.yticks(y_pos, label_names)
 
                     plt.gca().invert_yaxis()
                     plt.margins(y=0)
@@ -312,7 +311,7 @@ if __name__ == '__main__':
                         help='Whether to include sigmoid activation before using attributes to predict Y. For end2end & bottleneck model',
                         action='store_true')
     args = parser.parse_args()
-    args.batch_size = 1
+    args.batch_size = 10
 
     print(args)
     y_results, c_results = [], []
