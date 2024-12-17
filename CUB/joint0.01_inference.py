@@ -189,6 +189,8 @@ def eval(args):
 
                     path = os.path.join(img_paths[i])
                     img = Image.open(path).convert('RGB')
+                    plt.title(f"path: {path}")
+
                     plt.imshow(img)
                     plt.show()
 
@@ -201,7 +203,7 @@ def eval(args):
                     plt.barh(y_pos, percentages)
                     plt.ylabel("Concepts")
                     plt.xlabel("Percentage (%)")
-                    plt.title(f"Percentage of contribution to task classification. class:{class_label}")
+                    plt.title(f"Percentage of contribution to task classification. class:{class_label}\n path: {path}")
 
                     plt.yticks(y_pos, labels)
 
@@ -310,7 +312,7 @@ if __name__ == '__main__':
                         help='Whether to include sigmoid activation before using attributes to predict Y. For end2end & bottleneck model',
                         action='store_true')
     args = parser.parse_args()
-    args.batch_size = 10
+    args.batch_size = 1
 
     print(args)
     y_results, c_results = [], []
